@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Doubt Solver – Intelligent Question Answering Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Google Fonts for clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-app">
+        <!-- Top Navigation / Header -->
+        <header class="chat-header">
+            <div class="brand">
+                <div class="brand-icon">🎓</div>
+                <div class="brand-text">
+                    <h1>AI Doubt Solver</h1>
+                    <span class="status-badge">
+                        <span class="status-pulse"></span> Online &bull; Gemini AI
+                    </span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="clear-chat-btn" class="secondary-btn" title="Clear chat history and start fresh">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                    <span>Clear Chat</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Chat Message Feed -->
+        <main class="chat-main" id="chat-container">
+            <div class="messages-list" id="messages-list">
+                <!-- Welcome Message Card from AI -->
+                <div class="message-wrapper ai-message">
+                    <div class="avatar ai-avatar">🤖</div>
+                    <div class="message-bubble">
+                        <div class="message-header">
+                            <span class="sender-name">AI Tutor</span>
+                            <span class="message-time">Just now</span>
+                        </div>
+                        <div class="message-content">
+                            <p><strong>Hello! Ask me any question. I'm here to help you.</strong></p>
+                            <p>I can help you with mathematics, programming, general science, grammar correction, and English &harr; Telugu translations.</p>
+                        </div>
+                        
+                        <!-- Quick Starter Suggestion Chips -->
+                        <div class="suggestion-chips">
+                            <button class="chip" data-prompt="Solve 3x + 9 = 24 step by step">
+                                📐 Solve 3x + 9 = 24
+                            </button>
+                            <button class="chip" data-prompt="Explain Python list comprehensions with examples">
+                                🐍 Explain Python Lists
+                            </button>
+                            <button class="chip" data-prompt="Translate 'Education is the key to success' into Telugu">
+                                🌐 Translate to Telugu
+                            </button>
+                            <button class="chip" data-prompt="Correct the grammar: 'She go to market yesterday'">
+                                ✍️ Check Grammar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Error Alert Banner -->
+        <div id="error-banner" class="error-banner hidden" role="alert">
+            <span class="error-icon">⚠️</span>
+            <span id="error-message" class="error-text">An error occurred.</span>
+            <button id="close-error-btn" class="close-error" aria-label="Close error">&times;</button>
+        </div>
+
+        <!-- Bottom Chat Input Bar -->
+        <footer class="chat-footer">
+            <form id="chat-form" class="chat-form" autocomplete="off">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="user-input" 
+                        class="chat-input" 
+                        placeholder="Type your doubt or question here... (Press Enter to send)" 
+                        rows="1"
+                        required></textarea>
+                    <button type="submit" id="send-btn" class="send-btn" aria-label="Send message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="input-hint">
+                    <span>Press <strong>Enter</strong> to send &bull; <strong>Shift + Enter</strong> for a new line</span>
+                </div>
+            </form>
+        </footer>
+    </div>
+
+    <!-- Client Script -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Environment Variables & Secrets (Keep your API keys private!)
+.env
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# IDE & Editor Settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
